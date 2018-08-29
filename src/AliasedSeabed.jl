@@ -2,6 +2,13 @@ module AliasedSeabed
 
 export asbmask
 
+@static if VERSION < v"0.7.0-DEV.2005"
+else
+    using Statistics
+end
+
+
+
 using EchogramUtils
 using EchogramProcessing
 
@@ -18,7 +25,7 @@ function asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dphi=52, min
 
     md = median(b)
 
-    info("md $md")
+    # info("md $md")
 
     if minSv == nothing
         T = md
@@ -26,7 +33,7 @@ function asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dphi=52, min
         T = max(md, minSv)
     end
 
-    info("T $T")
+    # info("T $T")
           
     aboveT = Sv.> T # Points above lower threshold. 
     rows, cols = findn(m)
