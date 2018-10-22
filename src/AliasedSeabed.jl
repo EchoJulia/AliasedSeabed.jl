@@ -1,6 +1,6 @@
 module AliasedSeabed
 
-export asbmask, m1, m2
+export blackwell_asbmask, m1, m2
 
 using Statistics
 using EchogramUtils
@@ -19,7 +19,13 @@ function myfindn(x)
     (getindex.(I, 1), getindex.(I, 2))
 end
 
-function asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dphi=52, minSv=nothing)
+"""
+
+Implements aliased seabed detection according to the author's
+forthcoming paper.
+
+"""
+function blackwell_asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dphi=52, minSv=nothing)
 
     _m1 = m1(ntheta, Ttheta=Ttheta, dtheta=dtheta)
     _m2 = m2(nphi, Tphi=Tphi, dphi=dphi)
@@ -53,6 +59,7 @@ function asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dphi=52, min
     bw .| m
 
 end
+
 
 
 

@@ -1,0 +1,16 @@
+name = "AliasedSeabed"
+uuid = "4ff490a8-d5db-11e8-3077-e1d772101c07"
+authors = ["Rob Blackwell <rob@robblackwell.com>"]
+version = "0.1.0"
+
+[deps]
+EchogramProcessing = "b1d2cf81-fcf6-5c93-b2a2-02d157d06f1e"
+EchogramUtils = "98433ae5-64ae-5f75-927a-48d3260c7151"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[extras]
+SimradEK60 = "8e323af8-d215-5c39-b262-30cfc2fa9c48"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test", "SimradEK60"]

@@ -12,7 +12,7 @@ nphi = athwartshipangle(ps38)
 
 _m1 = m1(ntheta)
 _m2 = m2(nphi)
-a = asbmask(_Sv, ntheta, nphi)
+a = blackwell_asbmask(_Sv, ntheta, nphi)
 
 @test sum(_m1) == 66165
 @test sum(_m2) == 39929
