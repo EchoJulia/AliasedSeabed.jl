@@ -36,8 +36,8 @@ function blackwell_asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dp
 
     b = filter(x -> x !=-999, a) # remove 'missing' cells
 
-    if sum(b) < 1
-        # blank mask
+    if length(b) < 1
+        # No ASB found
         return map(x -> false, Sv)
     end
     
