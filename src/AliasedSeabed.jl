@@ -43,7 +43,7 @@ function blackwell_asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dp
     
     md = median(b)
 
-    # info("md $md")
+    @info("medianSv = $md")
 
     if minSv == nothing
         T = md
