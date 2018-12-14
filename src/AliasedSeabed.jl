@@ -51,7 +51,7 @@ function blackwell_asbmask(Sv, ntheta, nphi; Ttheta=702, Tphi=282, dtheta=28, dp
         T = max(md, minSv)
     end
 
-    # info("T $T")
+    @info("T = $T")
           
     aboveT = Sv.> T # Points above lower threshold. 
     rows, cols = myfindn(m)
