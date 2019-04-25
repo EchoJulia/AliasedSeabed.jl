@@ -12,3 +12,23 @@
 
 A Julia implementation of the aliased seabed detection algorithm described in 
 [Blackwell et al. (2019)](https://arxiv.org/abs/1904.10736).
+
+## Example
+
+```
+using AliasedSeabed
+using SimradEK60
+
+# Load some 38 kHz data
+filename = "JR280_-D20121202-T170437.raw"
+ps = SimradEK60.load(filename)
+ps38 = [p for p in ps if p.frequency == 38000]
+_Sv = Sv(ps38) # Volume backscatter
+ntheta = alongshipangle(ps38) # Split beam angle
+nphi = athwartshipangle(ps38)
+
+# Find aliased seabed
+a = blackwell_asbmask(_Sv, ntheta, nphi)
+
+```
+
